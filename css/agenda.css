@@ -1,0 +1,29 @@
+.cabecera{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.mensaje-error{
+    color: crimson;
+}
+
+.mensaje-confirmacion{
+    padding-bottom: 20px;
+}
+
+.barra-navegacion ul {
+    height: 42px;
+    border-bottom: 1px solid #1EAEDB;
+}
+
+.barra-navegacion li {
+    display: inline-block;
+    padding-top: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 33px;
+}
+
+.barra-navegacion a {
+    text-decoration: none;
+}
