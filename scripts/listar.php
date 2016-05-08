@@ -13,7 +13,7 @@ function listarContent($mostrarEliminar)
 function mostrarLista($leidos, $mostrarEliminar)
 {
     print "<form method='post' action=''>";
-    if ($leidos != []) {
+    if ($leidos != array()) {
         print "<table>
             <thead>
                 <tr>

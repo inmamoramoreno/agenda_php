@@ -19,7 +19,7 @@ function buscarContent()
  */
 function buscar()
 {
-    $encontrados = [];
+    $encontrados = array();
 
     if (isset($_POST["buscar"])) {
 

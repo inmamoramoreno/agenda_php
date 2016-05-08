@@ -6,7 +6,7 @@ require "archivo.php";
 
 function borrarTodoContent()
 {
-    if ($_POST != []) {
+    if ($_POST != array()) {
         if (isset($_POST["borrar-todo-si"])) {
             borrarArchivo();
         }

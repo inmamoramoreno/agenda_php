@@ -13,11 +13,11 @@ function cabecera()
         <html lang='en'>
 <head>
     <base href='/'>
-    <meta charset='UTF-8\'>
+    <meta charset='UTF-8'>
     <title>Agenda</title>
-    <link rel='stylesheet' href='agenda/css/skeleton/normalize.css'>
-    <link rel='stylesheet' href='agenda/css/skeleton/skeleton.css'>
-    <link rel='stylesheet' href='agenda/css/agenda.css'>
+    <link rel='stylesheet' href='css/skeleton/normalize.css'>
+    <link rel='stylesheet' href='css/skeleton/skeleton.css'>
+    <link rel='stylesheet' href='css/agenda.css'>
 </head>
 <body>
 

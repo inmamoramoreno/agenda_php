@@ -3,14 +3,17 @@
 /**
  * Funcion para leer el contenido entero del archivo
  */
-function readArchivo(){
+function readArchivo()
+{
 
     $archivo = fopen("../data/datos.txt", "r");
-    $lineas = [];
+    $lineas = array();
 
     while (!feof($archivo)) {
         $linea = fgets($archivo);
-        array_push($lineas, $linea);
+        if (!empty($linea)) {
+            array_push($lineas, $linea);
+        }
     }
 
     fclose($archivo);
@@ -22,14 +25,15 @@ function readArchivo(){
  * Funcion para añadir un array al archivo entero
  * @param $lineas
  */
-function writeArchivo($lineas){
+function writeArchivo($lineas)
+{
 
     borrarArchivo();
 
     $archivo = fopen("../data/datos.txt", "a");
 
-    foreach ($lineas as $linea){
-        fwrite($archivo,$linea);
+    foreach ($lineas as $linea) {
+        fwrite($archivo, $linea);
     }
     fclose($archivo);
 }
@@ -37,9 +41,10 @@ function writeArchivo($lineas){
 /**
  * Funcion para borrar el contenido del archivo por completo
  */
-function borrarArchivo(){
+function borrarArchivo()
+{
     $archivo = fopen("../data/datos.txt", "w");
-    fwrite($archivo,"");
+    fwrite($archivo, "");
     fclose($archivo);
 }
 
@@ -50,7 +55,7 @@ function borrarArchivo(){
 function writeLinea($linea)
 {
     $archivo = fopen("../data/datos.txt", "a");
-    fwrite($archivo,"\n".$linea);
+    fwrite($archivo, $linea . "\n");
     fclose($archivo);
 }
 

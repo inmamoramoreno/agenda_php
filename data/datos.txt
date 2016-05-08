@@ -1,5 +1,5 @@
-3:Babel:Calle París, 69, 2º , Segunda:Antonio Fernández Hernández:647023061:44210977D:antonio@gmail.com:Informatica:
-44210977d:Nombre Empresa:Calle París, 69, 2º , Segunda:Inmaculada:647023061:44210977d:inma.mora.moreno@gmail.com:Informatica:
-48954188E:Nombre Empresa:Calle Alfonso XII, Nº 13 3º A:Antonio:600123123:48954188E:antonio@gmail.com:Quimica:
-44210977D:nueva:nnnn:Antonio:600123123:44210977D:antonio.fernandez.hernandez@gmail.com:Informática:
-Fernandez:Nombre Empresa:Calle Alfonso XII, Nº 13 3º A:Test Quimica:600123456:Fernandez:antonio.fernandez.hernandez@gmail.com:Química:
+48954188E:Fundacion CIM:Barcelona:Inmaculada:600123123:48954188E:inma@gmail.com:Informática:
+84071663Q:em84071663Q:Calle de Paris Nº 69, 2º 2ª:Inmaculada:674119501:84071663Q::
+77522732J:Emp:Calle de Paris Nº 69, 2º 2ª:Inmaculada:674119501:77522732J:inma.mora.moreno@gmail.com:on:
+26658100L:Emp:Calle de Paris Nº 69, 2º 2ª:Inmaculada:674119501:26658100L:inma.mora.moreno@gmail.com:on:
+05263650P:Emp:Calle de Paris Nº 69, 2º 2ª:Inmaculada:674119501:05263650P:inma.mora.moreno@gmail.com:

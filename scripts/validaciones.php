@@ -20,7 +20,7 @@ function insertValidationError($campo, $msg)
 {
 
     if (!array_key_exists(VALIDATION_MSG_ARRAY, $_SESSION)) {
-        $_SESSION[VALIDATION_MSG_ARRAY] = [];
+        $_SESSION[VALIDATION_MSG_ARRAY] = array();
     }
     $_SESSION[VALIDATION_MSG_ARRAY][$campo] = $msg;
 }
@@ -34,7 +34,7 @@ function insertValueInSession($campo, $msg)
 {
 
     if (!array_key_exists(VALIDATION_DATA_ARRAY, $_SESSION)) {
-        $_SESSION[VALIDATION_DATA_ARRAY] = [];
+        $_SESSION[VALIDATION_DATA_ARRAY] = array();
     }
 
     $_SESSION[VALIDATION_DATA_ARRAY][$campo] = $msg;
@@ -73,8 +73,8 @@ function showValueInSession($campo)
  */
 function cleanSessionValidationData()
 {
-    $_SESSION[VALIDATION_MSG_ARRAY] = [];
-    $_SESSION[VALIDATION_DATA_ARRAY] = [];
+    $_SESSION[VALIDATION_MSG_ARRAY] = array();
+    $_SESSION[VALIDATION_DATA_ARRAY] = array();
 }
 
 /**
@@ -87,12 +87,13 @@ function validar()
 
     cleanSessionValidationData();
 
-//    $valido &= genericValidator(FIELD_EMPRESA, $_POST[FIELD_EMPRESA], "");
-//    $valido &= genericValidator(FIELD_DIRECCION, $_POST[FIELD_DIRECCION], "");
-//    $valido &= genericValidator(FIELD_NOMBRE, $_POST[FIELD_NOMBRE], VAL_ERROR_NOMBRE);
-//    $valido &= genericValidator(FIELD_TELEFONO, $_POST[FIELD_TELEFONO], VAL_ERROR_TELEFONO);
-//    $valido &= genericValidator(FIELD_DNI, $_POST[FIELD_DNI], VAL_ERROR_DNI);
-//    $valido &= genericValidator(FIELD_CORREO, $_POST[FIELD_CORREO], VAL_ERROR_CORREO);
+    $valido &= genericValidator(FIELD_EMPRESA, $_POST[FIELD_EMPRESA], "");
+    $valido &= genericValidator(FIELD_DIRECCION, $_POST[FIELD_DIRECCION], "");
+    $valido &= genericValidator(FIELD_NOMBRE, $_POST[FIELD_NOMBRE], VAL_ERROR_NOMBRE);
+    $valido &= genericValidator(FIELD_TELEFONO, $_POST[FIELD_TELEFONO], VAL_ERROR_TELEFONO);
+    $valido &= genericValidator(FIELD_DNI, $_POST[FIELD_DNI], VAL_ERROR_DNI);
+    $valido &= genericValidator(FIELD_CORREO, $_POST[FIELD_CORREO], VAL_ERROR_CORREO);
+    //$valido &= genericValidator(FIELD_ESPECIALIDAD, $_POST[FIELD_ESPECIALIDAD], "");
 
     return $valido;
 }
@@ -135,18 +136,18 @@ function concreteValidator($campo, $valor)
     switch ($campo) {
         case FIELD_NOMBRE: {
 
-            $pattern = "/^[A-Z][a-zñÑáéíóúÁÉÍÓÚÄËÏÖÜäëïöüàèìòùÀÈÌÔÙ, ]{2,}$/";
-
+            $pattern = '/^[A-Z][a-zñÑáéíóúÁÉÍÓÚÄËÏÖÜäëïöüàèìòùÀÈÌÔÙ, ]{2,}$/';
             $valid = preg_match($pattern, $valor);
+
             break;
         }
         case FIELD_TELEFONO: {
 
             $valid = preg_match('/^[9|8|6|7][0-9]{8}$/', $valor);
+
             break;
         }
         case FIELD_DNI: {
-
 
             $letra = substr($valor, -1);
             $numeros = substr($valor, 0, -1);
@@ -158,7 +159,9 @@ function concreteValidator($campo, $valor)
         }
         case FIELD_CORREO: {
 
-            $valid = filter_var($valor, FILTER_VALIDATE_EMAIL);
+            $pattern = '/^[A-z0-9_\-.]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z.]{2,4}$/';
+            $valid = preg_match($pattern, $valor);
+
             break;
         }
     }

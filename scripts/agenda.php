@@ -70,7 +70,7 @@ function eliminar()
     if (isset($_POST["eliminar"])) {
 
         //1. Obtenemos los id para borrar del archivo desde el $_POST
-        $idsToDelete = [];
+        $idsToDelete = array();
 
         foreach ($_POST as $key => $value) {
             if (strstr($key, 'id_')) {
@@ -89,7 +89,7 @@ function eliminar()
         $lineasDeArchivo = readArchivo();
 
         //3. filtrar las lineas para escribir las que no se borran
-        $lineasDeArchivoFiltered = [];
+        $lineasDeArchivoFiltered = array();
 
         foreach ($lineasDeArchivo as $linea) {
             if (!esLineaParaBorrar($linea, $idsToDelete)) {

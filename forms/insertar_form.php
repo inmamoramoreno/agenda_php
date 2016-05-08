@@ -58,21 +58,25 @@
         </div>
 
         <div class="row">
-            <div class="two columns"><label for="correo">Introduce el Sector:</label></div>
+            <div class="two columns"><label>Introduce el Sector:</label></div>
             <div class="six columns">
                 <div class="row">
-                    <input type="radio" name="<?php print FIELD_ESPECIALIDAD; ?>"
-                           value="<?php print FIELD_ESPECIALIDAD_1_VALUE; ?>">
-                    <span class="label-body"><?php print FIELD_ESPECIALIDAD_1_VALUE; ?></span>
+                    <label>
+                        <input id="esp1" type="radio" name="<?php print FIELD_ESPECIALIDAD; ?>"
+                        value="<?php print FIELD_ESPECIALIDAD_1_VALUE; ?>">
+                        <span class="label-body"><?php print FIELD_ESPECIALIDAD_1_VALUE; ?></span>
+                    </label>
                 </div>
                 <div class="row">
-                    <input type="radio" name="<?php print FIELD_ESPECIALIDAD; ?>"
-                           value="<?php print FIELD_ESPECIALIDAD_2_VALUE; ?>">
-                    <span class="label-body"><?php print FIELD_ESPECIALIDAD_2_VALUE; ?></span>
+                    <label>
+                        <input id="esp2" type="radio" name="<?php print FIELD_ESPECIALIDAD; ?>"
+                        value="<?php print FIELD_ESPECIALIDAD_2_VALUE; ?>">
+                        <span class="label-body"><?php print FIELD_ESPECIALIDAD_2_VALUE; ?></span>
+                    </label>
                 </div>
             </div>
-        </div>
 
+        </div>
         <input type="submit" value="Insertar" name="guardar" class="button-primary">
     </form>
 </div>
