@@ -3,7 +3,10 @@
 require "globales.php";
 require "menu.php";
 
-function logoutContent()
+/**
+ * Funcion encargada de desconectar al usuario
+ */
+function logout()
 {
     if ($_POST != array()) {
         if (isset($_POST["logout-si"])) {
@@ -17,13 +20,16 @@ function logoutContent()
 }
 
 //======================================================================
+//Impresion
 
 cabecera();
 menu();
-
 require "../forms/logout_form.php";
-
-logoutContent();
 pie();
+
+//======================================================================
+//Ejecucion
+
+logout();
 
 ?>

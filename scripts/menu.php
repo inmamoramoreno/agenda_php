@@ -1,9 +1,14 @@
 <?php
 
-
-
+/**
+ * Funcion encargada de imprimir el menu en todas las paginas cuando se esta logado
+ */
 function menu()
 {
+    /*Si no hay usuario en sesion, debemos forzar a ir a index para que se conecte de nuevo
+    (esto puede suceder cuando hay varias pestañas abiertas de la aplicacion y una de ellas
+    cierra sesión)
+    */
     if (strcmp($_SESSION['usuario'], "")==0) {
         header('Location:../index.php');
     } else {

@@ -11,6 +11,9 @@ define("NAVIGATE_TO_AGENDA","Location:scripts/agenda.php");
 
 define("LOGIN_ERROR","Usuario no registrado");
 
+/**
+ * Funcion encargada de validar al usuario y navegar a agenda.php si es correcto
+ */
 function login()
 {
     if (isset($_POST["ok"])) {
@@ -38,10 +41,15 @@ function login()
 }
 
 //======================================================================
+//Impresion
 
 cabecera();
 require "forms/index_form.php";
 pie();
+
+//======================================================================
+//Ejecucion
+
 login();
 
 ?>

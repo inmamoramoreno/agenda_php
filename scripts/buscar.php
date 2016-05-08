@@ -1,10 +1,12 @@
 <?php
 
-
 require "globales.php";
 require "menu.php";
 require "listar.php";
 
+/**
+ * Funcion encargada de ejecutar la búsqueda y mostrar los resultados
+ */
 function buscarContent()
 {
     $encontrados = buscar();
@@ -36,19 +38,25 @@ function buscar()
                     array_push($encontrados, $linea);
                 }
             }
+
+            if(empty($encontrados)){
+                print "No se han encontrado elementos";
+            }
         }
     }
     return $encontrados;
 }
 
 //======================================================================
+//Impresion
 
 cabecera();
 menu();
-
 require "../forms/buscar_form.php";
-
-buscarContent();
+buscarContent();//Ejecuta e imprime
 pie();
+
+
+
 
 ?>

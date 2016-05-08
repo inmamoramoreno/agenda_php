@@ -78,7 +78,7 @@ function cleanSessionValidationData()
 }
 
 /**
- * Funcion general para validar el formulacion de creacion de nueva persona
+ * Funcion general para validar el formulario de creacion de nueva persona
  * @return bool|int|void
  */
 function validar()
@@ -117,6 +117,13 @@ function validarTextoVacio($campo, $cadena)
     return $valid;
 }
 
+/**
+ * Funcion encargada de validar un campo
+ * @param $campo
+ * @param $valor
+ * @param $mensajeError
+ * @return bool|int
+ */
 function genericValidator($campo, $valor, $mensajeError)
 {
     $valid = validarTextoVacio($campo, $valor);
@@ -129,6 +136,12 @@ function genericValidator($campo, $valor, $mensajeError)
     return $valid;
 }
 
+/**
+ * Funcion encargada de validar datos especificos
+ * @param $campo
+ * @param $valor
+ * @return bool|int
+ */
 function concreteValidator($campo, $valor)
 {
     $valid = true;

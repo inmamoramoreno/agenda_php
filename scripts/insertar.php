@@ -20,7 +20,10 @@ define("FIELD_ESPECIALIDAD_2_VALUE", "Química");
 define("NAVIGATE_TO_AGENDA","Location:agenda.php");
 define("NAVIGATE_TO_INSERTAR","Location:insertar.php");
 
-function insertarContent()
+/**
+ * Funcion encargada de insertar los datos en el archivo validandolos previamente
+ */
+function insertar()
 {
 
     if (isset($_POST["guardar"])) {
@@ -68,13 +71,14 @@ function addToLinea($linea, $atributo)
 }
 
 //======================================================================
-
+//Impresion
 cabecera();
 menu();
-
 require "../forms/insertar_form.php";
-
-insertarContent();
 pie();
+
+//======================================================================
+//Ejecucion
+insertar();
 
 ?>

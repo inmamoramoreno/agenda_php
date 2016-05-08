@@ -2,10 +2,10 @@
 
 /**
  * Funcion para leer el contenido entero del archivo
+ * @return array Array de elementos leidos
  */
 function readArchivo()
 {
-
     $archivo = fopen("../data/datos.txt", "r");
     $lineas = array();
 

@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * Funcion cabecera utilizable en todos los PHP para generar el inicio del HTML
  */

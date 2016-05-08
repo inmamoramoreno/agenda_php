@@ -4,67 +4,9 @@ require "globales.php";
 require "menu.php";
 require "listar.php";
 
-function agendaContent()
-{
-/*
-    $archivo = fopen("../data/datos.txt", "r");
-
-    print "<form method='post' action=''>";
-
-    print "<table class='u-full-width'>
-            <thead>
-                <tr>
-                    <th>Empresa</th>
-                    <th>Dirección</th>
-                    <th>Nombre</th>
-                    <th>Teléfono</th>
-                    <th>DNI</th>
-                    <th>Correo</th>
-                    <th>Especialidad</th>
-                    <th></th><!--Es para el check de borrado-->
-                </tr>
-            </thead>
-            <tbody>";
-
-    while (!feof($archivo)) {
-        $linea = fgets($archivo);
-        if (!empty($linea)) {
-
-            $persona = explode(":", $linea);
-
-            $indice = array_shift($persona);
-
-            print "<tr>\n";
-            foreach ($persona as &$campo) {
-                print "<td>" . $campo . "</td>";
-            }
-
-            $maxColumns = 7;
-
-            for ($i = sizeof($persona); $i < $maxColumns; $i++) {
-                print "<td> </td>";
-            }
-
-            print "<td>
-                    <input type='checkbox' name='id_" . $indice . "'>
-                </td>
-            </tr>";
-        }
-    }
-
-    print "</tbody>
-        </table>";
-    fclose($archivo);
-
-*/
-    listarContent(true);
-
-    print "<input type='submit' value='Eliminar' name='eliminar' class='button-primary'>";
-    print "</form>";
-}
-
-
-
+/**
+ * Funcion encargada de eliminar del archivo a todas las personas seleccionadas
+ */
 function eliminar()
 {
     if (isset($_POST["eliminar"])) {
@@ -72,17 +14,12 @@ function eliminar()
         //1. Obtenemos los id para borrar del archivo desde el $_POST
         $idsToDelete = array();
 
+        //Ejemplo: id_84071663Q --> 84071663Q y se almacena en $x
         foreach ($_POST as $key => $value) {
             if (strstr($key, 'id_')) {
                 $x = str_replace('id_', '', $key);
                 array_push($idsToDelete, $x);
             }
-        }
-
-        print "LINEAS PARA ELIMINAR: ";
-
-        foreach ($idsToDelete as $id) {
-            print $id . " ";
         }
 
         //2. Leemos el archivo completo
@@ -98,27 +35,30 @@ function eliminar()
         }
 
         //4.Escribir las que no se borran
-        foreach ($lineasDeArchivoFiltered as $linea) {
-            print "ARCHIVO FINAL: " . $linea . "\n";
-        }
-
         writeArchivo($lineasDeArchivoFiltered);
 
-        //vuelve a la pantalla de agenda(recargar)
+        //vuelve a la pantalla de agenda (recargar)
         header('Location:agenda.php');
     }
 }
 
+/**
+ * Funcion encargada de calcular si una linea debe ser borrada o no (en funcion de su id)
+ * @param $linea
+ * @param $idsToDelete
+ * @return bool
+ */
 function esLineaParaBorrar($linea, $idsToDelete)
 {
-
     $borrar = false;
 
     $trozos = explode(":", $linea);
     $id = $trozos[0];
 
+    //Itero por los id que se van a borrar para localizar si el id de la linea pasada
+    //por param está dentro de este conjunto o no.
+    //si está, quiere decir que es para borrar (devuelvo true) si no se devuelve false
     foreach ($idsToDelete as $id_i) {
-        print "[compare ##" . $id_i . "##" . $id . "##]";
         if (strcmp($id_i, $id) == 0) {
             $borrar = true;
             break;
@@ -128,11 +68,15 @@ function esLineaParaBorrar($linea, $idsToDelete)
 }
 
 //======================================================================
+//Impresion
 
 cabecera();
 menu();
 listarContent(true);
-eliminar();
 pie();
+
+//======================================================================
+//Ejecucion
+eliminar();
 
 ?>

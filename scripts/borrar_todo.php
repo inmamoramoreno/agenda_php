@@ -4,7 +4,10 @@ require "globales.php";
 require "menu.php";
 require "archivo.php";
 
-function borrarTodoContent()
+/**
+ * Funcion encargada de borrar el archivo si se le da a que SÍ en el formulario
+ */
+function borrarTodo()
 {
     if ($_POST != array()) {
         if (isset($_POST["borrar-todo-si"])) {
@@ -16,13 +19,14 @@ function borrarTodoContent()
 }
 
 //======================================================================
-
+//Impresion
 cabecera();
 menu();
-
 require "../forms/borrar_todo_form.php";
-
-borrarTodoContent();
 pie();
+
+//======================================================================
+//Ejecucion
+borrarTodo();
 
 ?>
