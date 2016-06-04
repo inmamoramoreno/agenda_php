@@ -11,6 +11,8 @@ function logout()
     if ($_POST != array()) {
         if (isset($_POST["logout-si"])) {
             session_destroy();
+            global $db;
+            $db = null;
             header('Location:../index.php');
         }else {
             //vuelve a la pantalla de agenda

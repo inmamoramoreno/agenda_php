@@ -1,11 +1,25 @@
 <?php
 
+$usuarioDao = null;
+$agendaDao = null;
+
 /**
  * Funcion cabecera utilizable en todos los PHP para generar el inicio del HTML
  */
 function cabecera()
 {
     session_start();
+    //Uso de la global
+    global $usuarioDao;
+
+    if ($usuarioDao != null) {
+        $usuarioDao = new UsuarioDao;
+    }
+    global $agendaDao;
+
+    if ($agendaDao != null) {
+        $agendaDao = new AgendaDao;
+    }
 
     print "<!DOCTYPE html>
         <html lang='en'>

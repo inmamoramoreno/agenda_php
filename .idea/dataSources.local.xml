@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Agenda" uuid="0c72424d-e612-4c53-af4c-ac0e78e4c772">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>agenda.*</schema-pattern>
+      <default-schemas>agenda.*</default-schemas>
+    </data-source>
+  </component>
+</project>
