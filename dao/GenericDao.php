@@ -33,8 +33,11 @@ class GenericDao
         return $this->db;
     }
 
+    /**
+     * Metodo para cerrar la conexion
+     */
     public function close()
     {
-        $db = null;
+        $this->db = null;
     }
 }
