@@ -22,7 +22,7 @@ class UsuarioDao extends GenericDao
      * @param $password
      * @return bool
      */
-    public function usuarioRegistrado($usuario, $password)
+    public function buscarUsuario($usuario, $password)
     {
         //String con la query
         $query = "select * from datos_usuario " .
@@ -30,21 +30,23 @@ class UsuarioDao extends GenericDao
 
         $resultados = $this->getDb()->query($query);
 
-        $registrado = false;
+        return $resultados;
 
-        if (!$resultados) {
-            print MYSQL_ERROR;
-        } else {
-            $filas = $resultados->fetchAll();
-
-            $encontrados = sizeof($filas);
-
-            if ($encontrados == 1) {
-                $registrado = true;
-            } else {
-                $registrado = false;
-            }
-        }
-        return $registrado;
+//        $registrado = false;
+//
+//        if (!$resultados) {
+//            print MYSQL_ERROR;
+//        } else {
+//            $filas = $resultados->fetchAll();
+//
+//            $encontrados = sizeof($filas);
+//
+//            if ($encontrados == 1) {
+//                $registrado = true;
+//            } else {
+//                $registrado = false;
+//            }
+//        }
+//        return $registrado;
     }
 }

@@ -13,6 +13,7 @@ class Record
     private $DNI;
     private $correo;
     private $especialidad;
+    private $usuarioDto;
 
     /**
      * Record constructor.
@@ -151,6 +152,24 @@ class Record
     }
 
     /**
+     * @return mixed
+     */
+    public function getUsuarioDto()
+    {
+        return $this->usuarioDto;
+    }
+
+    /**
+     * @param mixed $usuarioDto
+     */
+    public function setUsuarioDto($usuarioDto)
+    {
+        $this->usuarioDto = $usuarioDto;
+    }
+
+
+
+    /**
      * Conversion del dto a String para renderizarlo en pantalla
      */
     public function toString()
@@ -177,6 +196,7 @@ class Record
         "'".$this->getTelefono().    "',".
         "'".$this->getDNI().         "',".
         "'".$this->getCorreo().      "',".
-        "'".$this->getEspecialidad()."')";
+        "'".$this->getEspecialidad()."',".
+        "'".$this->getUsuarioDto()->getId()."')";
     }
 }

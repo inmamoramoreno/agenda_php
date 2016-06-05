@@ -28,9 +28,9 @@ class LoginController extends CommonController
         if (isset($_POST["ok"])) {
 
             $usuarioDto = $this->generateUsuarioDto();
-            $registrado = $this->getUsuarioService()->usuarioRegistrado($usuarioDto);
+            $usuarioDto = $this->getUsuarioService()->buscarUsuario($usuarioDto);
 
-            if ($registrado) {
+            if ($usuarioDto != false) {
                 $_SESSION[IFields::FIELD_USUARIO] = $usuarioDto;
                 header(INavigationPaths::NAVIGATE_TO_AGENDA_FROM_LOGIN);
             } else {

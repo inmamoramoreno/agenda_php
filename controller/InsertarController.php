@@ -37,8 +37,7 @@ class InsertarController extends CommonControllerWithMenu
 
             if ($valido) {
                 $this->getAgendaService()->guardarRecord($this->getRecord());
-                //vuelve a la pantalla de agenda
-                //cleanSessionValidationData();
+                $this->getValidacionService()->cleanSessionValidationData();
                 $this->setRecord(new Record());
                 header(INavigationPaths::NAVIGATE_TO_AGENDA);
             } else {
@@ -75,6 +74,8 @@ class InsertarController extends CommonControllerWithMenu
         $this->getRecord()->setDNI($this->getAttr(IFields::FIELD_DNI));
         $this->getRecord()->setCorreo($this->getAttr(IFields::FIELD_CORREO));
         $this->getRecord()->setEspecialidad($this->getAttr(IFields::FIELD_ESPECIALIDAD));
+        $this->getRecord()->setUsuarioDto($_SESSION[IFields::FIELD_USUARIO]);
+
     }
 
     /**
@@ -148,8 +149,8 @@ class InsertarController extends CommonControllerWithMenu
     <div class=\"six columns\">
         <input id=\"nombre\" name=\"" . IFields:: FIELD_NOMBRE . "\" type=\"text\"
                class=\"u-full-width\" value=\"" . $this->showValueInSession(IFields::FIELD_NOMBRE) . "\">
-    </div>".
-    $this->showValidationError(IFields::FIELD_NOMBRE) ."
+    </div>" .
+            $this->showValidationError(IFields::FIELD_NOMBRE) . "
 </div>
 
 <div class=\"row\">
@@ -157,17 +158,17 @@ class InsertarController extends CommonControllerWithMenu
     <div class=\"six columns\">
         <input id=\"telefono\" name=\"" . IFields::FIELD_TELEFONO . "\" type=\"text\"
                class=\"u-full-width\" value=\"" . $this->showValueInSession(IFields::FIELD_TELEFONO) . "\">
-    </div>".
-            $this->showValidationError(IFields::FIELD_TELEFONO) ."
+    </div>" .
+            $this->showValidationError(IFields::FIELD_TELEFONO) . "
 </div>
 
 <div class=\"row\">
     <div class=\"two columns\"><label for=\"dni\">DNI:</label></div>
     <div class=\"six columns\">
         <input id=\"dni\" name=\"" . IFields::FIELD_DNI . "\" type=\"password\"
-               class=\"u-full-width\" value=\"" .$this->showValueInSession(IFields::FIELD_DNI). "\">
-    </div>".
-            $this->showValidationError(IFields::FIELD_DNI) ."
+               class=\"u-full-width\" value=\"" . $this->showValueInSession(IFields::FIELD_DNI) . "\">
+    </div>" .
+            $this->showValidationError(IFields::FIELD_DNI) . "
 </div>
 
 <div class=\"row\">
@@ -175,8 +176,8 @@ class InsertarController extends CommonControllerWithMenu
     <div class=\"six columns\">
         <input id=\"correo\" name=\"" . IFields::FIELD_CORREO . "\" type=\"email\"
                class=\"u-full-width\" value=\"" . $this->showValueInSession(IFields::FIELD_CORREO) . "\">
-    </div>".
-            $this->showValidationError(IFields::FIELD_CORREO) ."
+    </div>" .
+            $this->showValidationError(IFields::FIELD_CORREO) . "
 </div>
 
 <div class=\"row\">

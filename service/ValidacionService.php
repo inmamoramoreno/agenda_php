@@ -30,7 +30,7 @@ class ValidacionService
     /**
      * Funcion para vaciar los arrays temporales de sesion
      */
-    private function cleanSessionValidationData()
+    public function cleanSessionValidationData()
     {
         $_SESSION[IFields::VALIDATION_MSG_ARRAY] = array();
         $_SESSION[IFields::VALIDATION_DATA_ARRAY] = array();

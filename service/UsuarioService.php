@@ -24,18 +24,33 @@ class UsuarioService
      * @param $usuarioDto
      * @return mixed
      */
-    public function usuarioRegistrado($usuarioDto){
+    public function buscarUsuario($usuarioDto)
+    {
 
         $this->getUsuarioDao()->open();
 
-        $registrado=$this->getUsuarioDao()->usuarioRegistrado(
+        $resultado = $this->getUsuarioDao()->buscarUsuario(
             $usuarioDto->getUsuario(), $usuarioDto->getPassword());
 
         $this->getUsuarioDao()->close();
 
-        return $registrado;
+        $usuarioDto = false;
+
+        if ($resultado != false) {
+            $usuarioDto = $this->map($resultado->fetch());
+        }
+        return $usuarioDto;
     }
 
+    private function map($resultado)
+    {
+        $usuarioDto = new UsuarioDto();
+        $usuarioDto->setId($resultado[IFields::FIELD_ID]);
+        $usuarioDto->setUsuario($resultado[IFields::FIELD_USUARIO]);
+        $usuarioDto->setPassword($resultado[IFields::FIELD_PASSWORD]);
+
+        return $usuarioDto;
+    }
 
     /**
      * @return mixed

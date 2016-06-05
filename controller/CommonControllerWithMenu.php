@@ -1,7 +1,7 @@
 <?php
 
-require dirname(__FILE__) . "/../dto/UsuarioDto.php";
 require "CommonController.php";
+require dirname(__FILE__) . "/../dto/UsuarioDto.php";
 
 /**
  * Class CommonControllerWithMenu
