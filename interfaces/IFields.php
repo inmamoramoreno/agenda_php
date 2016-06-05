@@ -21,4 +21,9 @@ interface IFields
     const FIELD_ESPECIALIDAD            = "ESPECIALIDAD";
     const FIELD_ESPECIALIDAD_1_VALUE    = "Informática";
     const FIELD_ESPECIALIDAD_2_VALUE    = "Química";
+    //----------------------------------------------------------------
+    //Campos de validacion en SESSION
+    const VALIDATION_MSG_ARRAY          = "VALIDATION_ARRAY";
+    const VALIDATION_DATA_ARRAY         = "VALIDATION_DATA_ARRAY";
+
 }

@@ -17,6 +17,7 @@ class AgendaService
     public function __construct()
     {
         $this->setAgendaDao(new AgendaDao());
+
     }
 
     /**
@@ -65,6 +66,7 @@ class AgendaService
      */
     public function guardarRecord($record)
     {
+
         $this->getAgendaDao()->open();
         $this->getAgendaDao()->guardarRecord($record);
         $this->getAgendaDao()->close();

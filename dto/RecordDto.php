@@ -1,7 +1,5 @@
 <?php
 
-require dirname(__FILE__) . "/../interfaces/IQueries.php";
-
 /**
  * Class Record
  */

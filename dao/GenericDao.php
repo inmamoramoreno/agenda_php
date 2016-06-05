@@ -1,7 +1,7 @@
 <?php
 
 require "config/IMySqlConfig.php";
-
+require dirname(__FILE__) . "/../interfaces/IQueries.php";
 /**
  * Class GenericDao
  */
