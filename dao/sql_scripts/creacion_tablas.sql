@@ -7,7 +7,8 @@ CREATE TABLE datos_formulario
     TELEFONO INT(9) NOT NULL,
     DNI VARCHAR(10) NOT NULL,
     CORREO VARCHAR(100) NOT NULL,
-    ESPECIALIDAD VARCHAR(30) NOT NULL
+    ESPECIALIDAD VARCHAR(30) NOT NULL,
+    USUARIO_ID INT(11) NOT NULL
 );
 CREATE TABLE datos_usuario
 (
@@ -15,3 +16,5 @@ CREATE TABLE datos_usuario
     USUARIO VARCHAR(30),
     PASSWORD VARCHAR(30)
 );
+ALTER TABLE datos_formulario ADD FOREIGN KEY (USUARIO_ID) REFERENCES datos_usuario (ID);
+CREATE INDEX datos_formulario_datos_usuario_ID_fk ON datos_formulario (USUARIO_ID);
