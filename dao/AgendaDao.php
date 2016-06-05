@@ -12,7 +12,8 @@ class AgendaDao extends GenericDao
      */
     public function listar()
     {
-        return $this->getDb()->query(IQueries::READ_DATOS_FORMULARIO);
+        $res= $this->getDb()->query(IQueries::READ_DATOS_FORMULARIO);
+        return $res;
     }
 
     /**
@@ -41,6 +42,35 @@ class AgendaDao extends GenericDao
     public function deleteRecord($id)
     {
 
+    }
+
+    /**
+     * Metodo encargado de realizar una busqueda en BD
+     * @param $texto
+     * @return mixed
+     */
+    public function buscar($texto)
+    {
+        $query=$this->generateSelectQuery($texto);
+
+        $resultado =$this->getDb()->query($query);
+
+        return $resultado;
+    }
+
+    /**
+     * Metodo privado auxiliar para generar la query de busqueda por todos los campos
+     * @param $texto
+     * @return string
+     */
+    private function generateSelectQuery($texto){
+        $query= IQueries::SELECT_DATOS_FORMULARIO." ".
+            IFields::FIELD_EMPRESA. " LIKE '%".$texto."%' OR ".
+            IFields::FIELD_DIRECCION. " LIKE '%".$texto."%' OR ".
+            IFields::FIELD_NOMBRE. " LIKE '%".$texto."%' OR ".
+            IFields::FIELD_DNI. " LIKE '%".$texto."%' OR ".
+            IFields::FIELD_CORREO. " LIKE '%".$texto."%'";
+        return $query;
     }
 
 }

@@ -13,6 +13,7 @@ class AgendaController extends CommonControllerWithMenu
 {
 
     private $agendaService;
+    private $mostrarEliminar;
 
     /**
      * AgendaController constructor.
@@ -29,7 +30,7 @@ class AgendaController extends CommonControllerWithMenu
     public function renderInternal()
     {
         $records = $this->getAgendaService()->listar();
-        $this->mostrarLista($records, true);
+        $this->mostrarLista($records, $this->getMostrarEliminar());
     }
 
     /**
@@ -37,7 +38,7 @@ class AgendaController extends CommonControllerWithMenu
      * @param $records
      * @param $mostrarEliminar
      */
-    private function mostrarLista($records, $mostrarEliminar)
+    protected function mostrarLista($records, $mostrarEliminar)
     {
         print "<form method='post' action=''>";
         if ($records != array()) {
@@ -104,4 +105,22 @@ class AgendaController extends CommonControllerWithMenu
     {
         $this->agendaService = $agendaService;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMostrarEliminar()
+    {
+        return $this->mostrarEliminar;
+    }
+
+    /**
+     * @param mixed $mostrarEliminar
+     */
+    public function setMostrarEliminar($mostrarEliminar)
+    {
+        $this->mostrarEliminar = $mostrarEliminar;
+    }
+
+
 }

@@ -14,17 +14,9 @@ abstract class CommonController
      */
     protected function cabecera()
     {
-        session_start();
-        //Uso de la global
-        global $usuarioDao;
-
-        if ($usuarioDao != null) {
-            $usuarioDao = new UsuarioDao;
-        }
-        global $agendaDao;
-
-        if ($agendaDao != null) {
-            $agendaDao = new AgendaDao;
+        if(!isset($_SESSION))
+        {
+            session_start();
         }
 
         print "<!DOCTYPE html>

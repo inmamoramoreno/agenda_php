@@ -28,6 +28,7 @@ class AgendaService
         $this->getAgendaDao()->open();
         $rows = $this->getAgendaDao()->listar();
         $this->getAgendaDao()->close();
+
         $lista = array();
         if ($rows != false) {
             $lista = array();
@@ -88,6 +89,27 @@ class AgendaService
         $this->getAgendaDao()->open();
         $this->getAgendaDao()->deleteRecord($id);
         $this->getAgendaDao()->close();
+    }
+
+    /**
+     * Metodo encargado de realizar una busqueda en BD
+     * @param $texto
+     * @return array
+     */
+    public function buscar($texto)
+    {
+        $this->getAgendaDao()->open();
+        $rows = $this->getAgendaDao()->buscar($texto);
+        $this->getAgendaDao()->close();
+
+        $lista = array();
+        if ($rows != false) {
+            $lista = array();
+            foreach ($rows as $row) {
+                array_push($lista, $this->map($row));
+            }
+        }
+        return $lista;
     }
 
     /**
