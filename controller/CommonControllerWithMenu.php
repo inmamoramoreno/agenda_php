@@ -27,11 +27,11 @@ abstract class CommonControllerWithMenu extends CommonController
     </div>
         <nav class='barra-navegacion'>
             <ul>
-                <li> <a href='view/pages/insertar.php'>Añadir</a></li>
-                <li> <a href='view/pages/agenda.php'>Listar</a></li>
-                <li> <a href='view/pages/buscar.php'>Buscar</a></li>
-                <li> <a href='view/pages/borrar_todo.php'>Borrar todo</a></li>
-                <li> <a href='view/pages/logout.php'>Desconectar</a></li>
+                <li> <a href='view/pages/insertar.php'>" . IMessages::MENU_ADD . "</a></li>
+                <li> <a href='view/pages/agenda.php'>" . IMessages::MENU_LIST . "</a></li>
+                <li> <a href='view/pages/buscar.php'>" . IMessages::MENU_SEARCH . "</a></li>
+                <li> <a href='view/pages/borrar_todo.php'>" . IMessages::MENU_DELETE . "</a></li>
+                <li> <a href='view/pages/logout.php'>" . IMessages::MENU_LOGOUT . "</a></li>
             </ul>
         </nav>
     </div>";
@@ -41,7 +41,8 @@ abstract class CommonControllerWithMenu extends CommonController
     /**
      * Metodo generico para imprimir todas las paginas
      */
-    public function render(){
+    public function render()
+    {
         $this->cabecera();
         $this->renderMenu();
         $this->renderInternal();

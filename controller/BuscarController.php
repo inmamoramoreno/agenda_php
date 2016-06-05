@@ -19,7 +19,9 @@ class BuscarController extends AgendaController
             $texto = $_POST["busqueda"];
 
             if (strcmp($texto, "") == 0) {
+                $this->cabecera();
                 print IMessages::SEARCH_EMPTY_TEXT;
+                $this->pie();
             } else {
 
                 $records = $this->getAgendaService()->buscar($texto);

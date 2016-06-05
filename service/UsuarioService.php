@@ -12,7 +12,6 @@ class UsuarioService
 
     /**
      * UsuarioService constructor.
-     * @param $usuarioDao
      */
     public function __construct()
     {

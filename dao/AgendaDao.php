@@ -68,7 +68,7 @@ class AgendaDao extends GenericDao
     private function generateSelectQuery($texto)
     {
         $query = IQueries::SELECT_DATOS_FORMULARIO . " " .
-            $_SESSION[IFields::FIELD_USUARIO]->getId(). "AND (".
+            $_SESSION[IFields::FIELD_USUARIO]->getId(). " AND (".
             IFields::FIELD_EMPRESA . " LIKE '%" . $texto . "%' OR " .
             IFields::FIELD_DIRECCION . " LIKE '%" . $texto . "%' OR " .
             IFields::FIELD_NOMBRE . " LIKE '%" . $texto . "%' OR " .

@@ -17,7 +17,7 @@ class LogoutController extends CommonControllerWithMenu
             if (isset($_POST["logout-si"])) {
                 session_destroy();
                 header(INavigationPaths::NAVIGATE_TO_LOGIN);
-            }else {
+            } else {
                 //vuelve a la pantalla de agenda
                 header(INavigationPaths::NAVIGATE_TO_AGENDA);
             }
@@ -30,19 +30,19 @@ class LogoutController extends CommonControllerWithMenu
      */
     public function renderInternal()
     {
-       print "
+        print "
         <div>
 
-            <h4>".IMessages::LOGOUT_DISCONNECT."</h4>
+            <h4>" . IMessages::LOGOUT_DISCONNECT . "</h4>
 
             <form id=\"desconectar-form\" method=\"post\" action=\"\">
 
-                <div class=\"row mensaje-confirmacion\">".
-                    IMessages::LOGOUT_EXIT.
-                "</div>
+                <div class=\"row mensaje-confirmacion\">" .
+            IMessages::LOGOUT_EXIT .
+            "</div>
                 <div class=\"row\">
-                    <input type=\"submit\" value=\"SÍ\" name=\"logout-si\" class=\"button-primary\">
-                    <input type=\"submit\" value=\"NO\" name=\"logout-no\" class=\"button\">
+                    <input type=\"submit\" value=\"" . IMessages::LOGOUT_YES . "\" name=\"logout-si\" class=\"button-primary\">
+                    <input type=\"submit\" value=\"" . IMessages::LOGOUT_NO . "\" name=\"logout-no\" class=\"button\">
                 </div>
             </form>
 

@@ -13,9 +13,21 @@ interface IMessages
     const LOGIN_BUTTON = "Login";
     const LOGIN_ERROR = "Usuario no registrado";
     //----------------------------------------------------------------
+    //Mensajes de Agenda
+    const AGENDA_TITLE = "Agenda";
+    //----------------------------------------------------------------
+    //Elementos de menu
+    const MENU_ADD = "Añadir";
+    const MENU_LIST = "Listar";
+    const MENU_SEARCH = "Buscar";
+    const MENU_DELETE = "Borrar todo";
+    const MENU_LOGOUT = "Desconectar";
+    //----------------------------------------------------------------
     //Mensajes de Logout
     const LOGOUT_DISCONNECT = "Desconectar";
     const LOGOUT_EXIT = "¿Está seguro de querer salir?";
+    const LOGOUT_YES = "SÍ";
+    const LOGOUT_NO = "NO";
     //----------------------------------------------------------------
     //Mensajes de Buscar
     const SEARCH_TITLE = "Buscar una persona";

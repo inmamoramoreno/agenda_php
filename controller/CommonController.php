@@ -14,8 +14,7 @@ abstract class CommonController
      */
     protected function cabecera()
     {
-        if(!isset($_SESSION))
-        {
+        if (!isset($_SESSION)) {
             session_start();
         }
 
@@ -24,7 +23,7 @@ abstract class CommonController
         <head>
             <base href='/'>
             <meta charset='UTF-8'>
-            <title>Agenda</title>
+            <title>" . IMessages::AGENDA_TITLE . "</title>
             <link rel='stylesheet' href='view/css/skeleton/normalize.css'>
             <link rel='stylesheet' href='view/css/skeleton/skeleton.css'>
             <link rel='stylesheet' href='view/css/agenda.css'>
@@ -47,14 +46,15 @@ abstract class CommonController
     /**
      * Metodo generico para imprimir todas las paginas
      */
-    public function render(){
+    public function render()
+    {
         $this->cabecera();
         $this->renderInternal();
         $this->pie();
     }
 
     /**
-     * Metodo especifico de cada pagina para mostrar su contenido
+     * Metodo abstracto especifico de cada pagina para mostrar su contenido
      * @return mixed
      */
     public abstract function renderInternal();
