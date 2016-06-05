@@ -12,6 +12,7 @@ interface IFields
     const FIELD_PASSWORD                = "PASSWORD";
     //----------------------------------------------------------------
     //Campos de datos_formulario
+    const FIELD_ID                      = "ID";
     const FIELD_EMPRESA                 = "EMPRESA";
     const FIELD_DIRECCION               = "DIRECCION";
     const FIELD_NOMBRE                  = "NOMBRE";

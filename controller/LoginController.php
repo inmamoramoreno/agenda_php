@@ -36,7 +36,9 @@ class LoginController extends CommonController
                 $_SESSION[IFields::FIELD_USUARIO] = $usuarioDto;
                 header(INavigationPaths::NAVIGATE_TO_AGENDA_FROM_LOGIN);
             } else {
-                echo IMessages::LOGIN_ERROR;
+                $this->cabecera();
+                print IMessages::LOGIN_ERROR;
+                $this->pie();
             }
         }
     }

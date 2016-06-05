@@ -4,10 +4,7 @@ require "CommonControllerWithMenu.php";
 require dirname(__FILE__) . "/../service/AgendaService.php";
 
 /**
- * Created by PhpStorm.
- * User: neome
- * Date: 05/06/2016
- * Time: 12:52
+ * Class AgendaController
  */
 class AgendaController extends CommonControllerWithMenu
 {
@@ -88,6 +85,21 @@ class AgendaController extends CommonControllerWithMenu
         }
     }
 
+    public function deleteRecord()
+    {
+        if (isset($_POST["eliminar"])) {
+
+            //Ejemplo: id_5 --> 5 y se almacena en $id
+            foreach ($_POST as $key => $value) {
+                if (strstr($key, 'id_')) {
+                    $id = str_replace('id_', '', $key);
+                    $this->getAgendaService()->deleteRecord($id);
+                }
+            }
+            //vuelve a la pantalla de agenda (recargar)
+            header(INavigationPaths::NAVIGATE_TO_AGENDA);
+        }
+    }
 
     /**
      * @return mixed

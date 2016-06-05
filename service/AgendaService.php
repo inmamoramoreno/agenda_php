@@ -48,7 +48,7 @@ class AgendaService
     private function map($row)
     {
         $dto = new Record;
-
+        $dto->setId($row[IFields::FIELD_ID]);
         $dto->setEmpresa($row[IFields::FIELD_EMPRESA]);
         $dto->setDireccion($row[IFields::FIELD_DIRECCION]);
         $dto->setNombre($row[IFields::FIELD_NOMBRE]);

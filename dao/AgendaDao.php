@@ -12,7 +12,7 @@ class AgendaDao extends GenericDao
      */
     public function listar()
     {
-        $res= $this->getDb()->query(IQueries::READ_DATOS_FORMULARIO);
+        $res = $this->getDb()->query(IQueries::READ_DATOS_FORMULARIO);
         return $res;
     }
 
@@ -41,7 +41,8 @@ class AgendaDao extends GenericDao
      */
     public function deleteRecord($id)
     {
-
+        $query = IQueries::DELETE_DATOS_FORMULARIO_ONE_RECORD . $id;
+        $this->getDb()->query($query);
     }
 
     /**
@@ -51,9 +52,9 @@ class AgendaDao extends GenericDao
      */
     public function buscar($texto)
     {
-        $query=$this->generateSelectQuery($texto);
+        $query = $this->generateSelectQuery($texto);
 
-        $resultado =$this->getDb()->query($query);
+        $resultado = $this->getDb()->query($query);
 
         return $resultado;
     }
@@ -63,13 +64,14 @@ class AgendaDao extends GenericDao
      * @param $texto
      * @return string
      */
-    private function generateSelectQuery($texto){
-        $query= IQueries::SELECT_DATOS_FORMULARIO." ".
-            IFields::FIELD_EMPRESA. " LIKE '%".$texto."%' OR ".
-            IFields::FIELD_DIRECCION. " LIKE '%".$texto."%' OR ".
-            IFields::FIELD_NOMBRE. " LIKE '%".$texto."%' OR ".
-            IFields::FIELD_DNI. " LIKE '%".$texto."%' OR ".
-            IFields::FIELD_CORREO. " LIKE '%".$texto."%'";
+    private function generateSelectQuery($texto)
+    {
+        $query = IQueries::SELECT_DATOS_FORMULARIO . " " .
+            IFields::FIELD_EMPRESA . " LIKE '%" . $texto . "%' OR " .
+            IFields::FIELD_DIRECCION . " LIKE '%" . $texto . "%' OR " .
+            IFields::FIELD_NOMBRE . " LIKE '%" . $texto . "%' OR " .
+            IFields::FIELD_DNI . " LIKE '%" . $texto . "%' OR " .
+            IFields::FIELD_CORREO . " LIKE '%" . $texto . "%'";
         return $query;
     }
 
