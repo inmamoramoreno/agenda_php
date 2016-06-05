@@ -1,7 +1,7 @@
 <?php
 
 require dirname(__FILE__) . "/../dao/AgendaDao.php";
-require dirname(__FILE__) . "/../dto/Record.php";
+require dirname(__FILE__) . "/../dto/RecordDto.php";
 
 /**
  * Class Agenda
@@ -25,9 +25,9 @@ class AgendaService
      */
     public function listar()
     {
-
+        $this->getAgendaDao()->open();
         $rows = $this->getAgendaDao()->listar();
-
+        $this->getAgendaDao()->close();
         $lista = array();
         if ($rows != false) {
             $lista = array();
@@ -45,16 +45,15 @@ class AgendaService
      */
     private function map($row)
     {
-
         $dto = new Record;
 
-        $dto->setEmpresa($row[EMPRESA]);
-        $dto->setDireccion($row[DIRECCION]);
-        $dto->setNombre($row[NOMBRE]);
-        $dto->setTelefono($row[TELEFONO]);
-        $dto->setDNI($row[DNI]);
-        $dto->setCorreo($row[CORREO]);
-        $dto->setEspecialidad($row[ESPECIALIDAD]);
+        $dto->setEmpresa($row[IFields::FIELD_EMPRESA]);
+        $dto->setDireccion($row[IFields::FIELD_DIRECCION]);
+        $dto->setNombre($row[IFields::FIELD_NOMBRE]);
+        $dto->setTelefono($row[IFields::FIELD_TELEFONO]);
+        $dto->setDNI($row[IFields::FIELD_DNI]);
+        $dto->setCorreo($row[IFields::FIELD_CORREO]);
+        $dto->setEspecialidad($row[IFields::FIELD_ESPECIALIDAD]);
 
         return $dto;
     }
@@ -63,8 +62,32 @@ class AgendaService
      * Metodo encargado de guardar un registro en BD
      * @param $record
      */
-    public function guardarRecord($record){
+    public function guardarRecord($record)
+    {
+        $this->getAgendaDao()->open();
         $this->getAgendaDao()->guardarRecord($record);
+        $this->getAgendaDao()->close();
+    }
+
+    /**
+     * Metodo para borrar toda la tabla datos_formulario
+     */
+    public function deleteAll()
+    {
+        $this->getAgendaDao()->open();
+        $this->getAgendaDao()->deleteAll();
+        $this->getAgendaDao()->close();
+    }
+
+    /**
+     * Metodo para borrar un registro
+     * @param $id
+     */
+    public function deleteRecord($id)
+    {
+        $this->getAgendaDao()->open();
+        $this->getAgendaDao()->deleteRecord($id);
+        $this->getAgendaDao()->close();
     }
 
     /**

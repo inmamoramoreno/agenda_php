@@ -26,7 +26,7 @@ class UsuarioDao extends GenericDao
     {
         //String con la query
         $query = "select * from datos_usuario " .
-            "where nombre = '" . $usuario . "' and password = '" . $password . "'";
+            "where usuario = '" . $usuario . "' and password = '" . $password . "'";
 
         $resultados = $this->getDb()->query($query);
 

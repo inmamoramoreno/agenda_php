@@ -1,6 +1,6 @@
 <?php
 
-define("INSERT", "insert into datos_formulario (EMPRESA,DIRECCION,NOMBRE,TELEFONO,DNI,CORREO,ESPECIALIDAD) VALUES(");
+require dirname(__FILE__) . "/../interfaces/IQueries.php";
 
 /**
  * Class Record
@@ -172,7 +172,7 @@ class Record
      * @return string
      */
     public function generateInsert(){
-        return INSERT.
+        return IQueries::INSERT_DATOS_FORMULARIO.
         "'".$this->getEmpresa().     "',".
         "'".$this->getDireccion().   "',".
         "'".$this->getNombre().      "',".

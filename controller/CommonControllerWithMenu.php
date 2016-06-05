@@ -1,7 +1,7 @@
 <?php
 
+require dirname(__FILE__) . "/../dto/UsuarioDto.php";
 require "CommonController.php";
-
 /**
  * Created by PhpStorm.
  * User: neome
@@ -19,13 +19,13 @@ abstract class CommonControllerWithMenu extends CommonController
         (esto puede suceder cuando hay varias pestañas abiertas de la aplicacion y una de ellas
         cierra sesión)
         */
-        if (strcmp($_SESSION['usuario'], "")==0) {
-            header('Location:../index.php');
+        if (is_null($_SESSION[IFields::FIELD_USUARIO])) {
+            header(INavigationPaths::NAVIGATE_TO_LOGIN);
         } else {
 
             print "<div>
     <div class='cabecera'>
-        <h2>Agenda " . $_SESSION['usuario'] . "</h2>
+        <h2>Agenda " . $_SESSION[IFields::FIELD_USUARIO]->getUsuario() . "</h2>
     </div>
         <nav class='barra-navegacion'>
             <ul>

@@ -1,32 +1,11 @@
 <?php
 
-require "globales.php";
-require "menu.php";
-require "archivo.php";
+require dirname(__FILE__)."/../../controller/BorrarTodoController.php";
 
-/**
- * Funcion encargada de borrar el archivo si se le da a que SÍ en el formulario
- */
-function borrarTodo()
-{
-    if ($_POST != array()) {
-        if (isset($_POST["borrar-todo-si"])) {
-            borrarArchivo();
-        }
-        //vuelve a la pantalla de agenda
-        header('Location:agenda.php');
-    }
-}
-
-//======================================================================
-//Impresion
-cabecera();
-menu();
-require "../forms/borrar_todo_form.php";
-pie();
-
-//======================================================================
-//Ejecucion
-borrarTodo();
+$borrarTodoInstance = new BorrarTodoController();
+//1. imprimo la pantalla ()
+$borrarTodoInstance->render();
+//2. Ejecuto Borrar
+$borrarTodoInstance->borrarTodo();
 
 ?>

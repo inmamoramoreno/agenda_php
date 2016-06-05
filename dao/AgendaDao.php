@@ -2,48 +2,17 @@
 
 require "GenericDao.php";
 
-
 /**
- * Empresa
-Direccion
-Nombre
-Teléfono
-DNI
-correo
-Especialidad
- */
-
-define("READ_ALL", "select * from DATOS_FORMULARIO");
-define("DELETE_ALL", "delete from datos_formulario");
-
-//Columnas
-define("EMPRESA", "EMPRESA");
-define("DIRECCION", "DIRECCION");
-define("NOMBRE", "NOMBRE");
-define("TELEFONO", "TELEFONO");
-define("DNI", "DNI");
-define("CORREO", "CORREO");
-define("ESPECIALIDAD", "ESPECIALIDAD");
-
-/**
- * Created by PhpStorm.
- * User: neome
- * Date: 04/06/2016
- * Time: 20:35
+ * Class AgendaDao
  */
 class AgendaDao extends GenericDao
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * @return PDOStatement
      */
     public function listar()
     {
-        return $this->getDb()->query(READ_ALL);
+        return $this->getDb()->query(IQueries::READ_DATOS_FORMULARIO);
     }
 
     /**
@@ -61,7 +30,8 @@ class AgendaDao extends GenericDao
      */
     public function deleteAll()
     {
-        $this->getDb()->query(DELETE_ALL);
+        $query = IQueries::DELETE_DATOS_FORMULARIO;
+        $this->getDb()->query($query);
     }
 
     /**

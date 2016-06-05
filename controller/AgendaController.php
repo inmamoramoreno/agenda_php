@@ -1,9 +1,7 @@
 <?php
 
 require "CommonControllerWithMenu.php";
-
 require dirname(__FILE__) . "/../service/AgendaService.php";
-
 
 /**
  * Created by PhpStorm.
