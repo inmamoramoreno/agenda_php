@@ -21,7 +21,7 @@ class AgendaController extends CommonControllerWithMenu
      */
     public function __construct()
     {
-        $this->setAgendaService(new AgendaService);
+        $this->setAgendaService(new AgendaService());
     }
 
     /**
