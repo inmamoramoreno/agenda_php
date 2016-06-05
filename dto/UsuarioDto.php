@@ -1,10 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: neome
- * Date: 05/06/2016
- * Time: 16:55
+ * Class UsuarioDto
  */
 class UsuarioDto
 {
