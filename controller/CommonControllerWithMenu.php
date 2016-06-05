@@ -1,17 +1,19 @@
 <?php
 
+require "CommonController.php";
+
 /**
  * Created by PhpStorm.
  * User: neome
  * Date: 05/06/2016
- * Time: 12:05
+ * Time: 13:56
  */
-class MenuController
+abstract class CommonControllerWithMenu extends CommonController
 {
     /**
      * Metodo publico para renderizar HTML en pantalla
      */
-    public function render()
+    public function renderMenu()
     {
         /*Si no hay usuario en sesion, debemos forzar a ir a index para que se conecte de nuevo
         (esto puede suceder cuando hay varias pestañas abiertas de la aplicacion y una de ellas
@@ -36,5 +38,15 @@ class MenuController
         </nav>
     </div>";
         }
+    }
+
+    /**
+     * Metodo generico para imprimir todas las paginas
+     */
+    public function render(){
+        $this->cabecera();
+        $this->renderMenu();
+        $this->renderInternal();
+        $this->pie();
     }
 }

@@ -11,7 +11,7 @@ abstract class CommonController
     /**
      * Funcion cabecera utilizable en todos los PHP para generar el inicio del HTML
      */
-    private function cabecera()
+    protected function cabecera()
     {
         session_start();
         //Uso de la global
@@ -44,7 +44,7 @@ abstract class CommonController
     /**
      * Funcion pie utilizable en todos los PHP para generar el fin del HTML
      */
-    private function pie()
+    protected function pie()
     {
         print "</div>
         </body>
