@@ -41,8 +41,6 @@ interface IMessages
     const VAL_ERROR_DNI = "DNI no válido";
     const VAL_ERROR_CORREO = "Email no válido";
     const VAL_ERROR_BLANK_FIELD = "Campo requerido vacío";
-
-
     //----------------------------------------------------------------
     //Mensajes de Mysql
     const MYSQL_CONNECTION_ERROR = "Error: No puede conectarse a la base de datos ";
