@@ -1,15 +1,16 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: neome
- * Date: 05/06/2016
- * Time: 16:42
+ * Interface IMessages
  */
 interface IMessages
 {
     //----------------------------------------------------------------
     //Mensajes de Login
+    const LOGIN_TITLE = "Acceso Usuarios";
+    const LOGIN_FIELD_USER = "Usuario:";
+    const LOGIN_FIELD_PASS = "Password:";
+    const LOGIN_BUTTON = "Login";
     const LOGIN_ERROR = "Usuario no registrado";
     //----------------------------------------------------------------
     //Mensajes de Logout

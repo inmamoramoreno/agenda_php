@@ -3,10 +3,7 @@
 require "AgendaController.php";
 
 /**
- * Created by PhpStorm.
- * User: neome
- * Date: 05/06/2016
- * Time: 18:33
+ * Class BuscarController
  */
 class BuscarController extends AgendaController
 {

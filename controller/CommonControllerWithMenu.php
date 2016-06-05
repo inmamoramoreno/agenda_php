@@ -2,11 +2,9 @@
 
 require dirname(__FILE__) . "/../dto/UsuarioDto.php";
 require "CommonController.php";
+
 /**
- * Created by PhpStorm.
- * User: neome
- * Date: 05/06/2016
- * Time: 13:56
+ * Class CommonControllerWithMenu
  */
 abstract class CommonControllerWithMenu extends CommonController
 {

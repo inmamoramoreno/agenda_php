@@ -4,6 +4,9 @@ require "CommonControllerWithMenu.php";
 require dirname(__FILE__) . "/../service/AgendaService.php";
 require dirname(__FILE__) . "/../service/ValidacionService.php";
 
+/**
+ * Class InsertarController
+ */
 class InsertarController extends CommonControllerWithMenu
 {
     private $record;

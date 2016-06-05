@@ -14,13 +14,11 @@ class LoginController extends CommonController
 
     /**
      * LoginController constructor.
-     * @param $usuarioService
      */
     public function __construct()
     {
         $this->setUsuarioService(new UsuarioService());
     }
-
 
     /**
      * Funcion encargada de validar al usuario y navegar a agenda.php si es correcto
@@ -66,13 +64,13 @@ class LoginController extends CommonController
         print "
         <div>
             <div class='cabecera'>
-                <h2>Acceso Usuarios</h2>
+                <h2>".IMessages::LOGIN_TITLE."</h2>
             </div>
 
             <form id=\"index-form\" method=\"post\">
 
                 <div class=\"row\">
-                    <div class=\"two columns\"><label for=\"usuario\">Usuario:</label></div>
+                    <div class=\"two columns\"><label for=\"usuario\">".IMessages::LOGIN_FIELD_USER."</label></div>
                     <div class=\"six columns\">
                         <input id=\"usuario\" name=\"" . IFields::FIELD_USUARIO . "\" type=\"text\"
                                class=\"u-full-width\">
@@ -80,14 +78,14 @@ class LoginController extends CommonController
                 </div>
 
                 <div class=\"row\">
-                    <div class=\"two columns\"><label for=\"password\">Password:</label></div>
+                    <div class=\"two columns\"><label for=\"password\">".IMessages::LOGIN_FIELD_PASS."</label></div>
                     <div class=\"six columns\">
                         <input id=\"password\" name=\"" . IFields::FIELD_PASSWORD . "\" type=\"password\"
                                class=\"u-full-width\">
                     </div>
                 </div>
 
-                <input type=\"submit\" value=\"Login\" name=\"ok\" class=\"button-primary\">
+                <input type=\"submit\" value=\"".IMessages::LOGIN_BUTTON."\" name=\"ok\" class=\"button-primary\">
             </form>
         </div>";
     }

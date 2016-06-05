@@ -3,6 +3,9 @@
 require "CommonControllerWithMenu.php";
 require dirname(__FILE__) . "/../service/AgendaService.php";
 
+/**
+ * Class BorrarTodoController
+ */
 class BorrarTodoController extends CommonControllerWithMenu
 {
     private $agendaService;
